@@ -6,16 +6,18 @@ import 'package:sales_tracker/featurs/presentation/views/landing_screen/landing_
 class RouteGenerator {
   final LandingPageBloc landingPageBloc = LandingPageBloc();
   Route<dynamic> generateRoute(RouteSettings settings) {
+    // ignore: unused_local_variable
     final args = settings.arguments;
     switch (settings.name) {
       case '/':
-      default:
         return MaterialPageRoute(
           builder: (_) => BlocProvider<LandingPageBloc>.value(
             value: landingPageBloc,
             child: const LandingScreen(),
           ),
         );
+      default:
+        return _errorRoute();
     }
   }
 
