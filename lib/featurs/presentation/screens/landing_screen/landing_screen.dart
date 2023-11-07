@@ -1,27 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sales_tracker/featurs/business_logics/landing_page_bloc/landing_page_bloc.dart';
-import 'package:sales_tracker/featurs/presentation/views/bills_screen/bill_screen.dart';
-import 'package:sales_tracker/featurs/presentation/views/home_screen/home_screen.dart';
-import 'package:sales_tracker/featurs/presentation/views/inventory_screen/Inventory_screen.dart';
-import 'package:sales_tracker/featurs/presentation/views/more/more_screen.dart';
-import 'package:sales_tracker/featurs/presentation/views/parties/parties_screen.dart';
+import 'package:sales_tracker/featurs/presentation/screens/bills_screen/bill_screen.dart';
+import 'package:sales_tracker/featurs/presentation/screens/home_screen/home_screen.dart';
+import 'package:sales_tracker/featurs/presentation/screens/inventory_screen/inventory_screen.dart';
+import 'package:sales_tracker/featurs/presentation/screens/more/more_screen.dart';
+import 'package:sales_tracker/featurs/presentation/screens/parties/parties_screen.dart';
+import 'package:sales_tracker/featurs/utils/colors/app_colors.dart';
+import 'package:sales_tracker/featurs/utils/constants/constants.dart';
 
 List<BottomNavigationBarItem> bottomnavItems = const <BottomNavigationBarItem>[
   BottomNavigationBarItem(
-    icon: Icon(Icons.home),
+    icon: Icon(Icons.home_rounded),
     label: 'Home',
   ),
   BottomNavigationBarItem(
-    icon: Icon(Icons.bookmark),
+    icon: Icon(Icons.bookmark_rounded),
     label: 'Bills',
   ),
   BottomNavigationBarItem(
-    icon: Icon(Icons.square),
+    icon: Icon(Icons.add_box_rounded),
     label: 'Inventory',
   ),
   BottomNavigationBarItem(
-    icon: Icon(Icons.group),
+    icon: Icon(Icons.group_rounded),
     label: 'Parties',
   ),
   BottomNavigationBarItem(
@@ -50,9 +52,13 @@ class LandingScreen extends StatelessWidget {
           body: Center(child: bottomNavScreen.elementAt(state.tabIndex)),
           bottomNavigationBar: BottomNavigationBar(
             items: bottomnavItems,
+            type: BottomNavigationBarType.fixed,
             currentIndex: state.tabIndex,
-            selectedItemColor: Theme.of(context).colorScheme.primary,
-            unselectedItemColor: Colors.grey,
+            selectedItemColor: primaryColor,
+            selectedFontSize: text9,
+            unselectedFontSize: text9,
+            showUnselectedLabels: true,
+            unselectedItemColor: navUnselectedColor,
             onTap: (index) => BlocProvider.of<LandingPageBloc>(context)
                 .add(TabChange(tabIndex: index)),
           ),
