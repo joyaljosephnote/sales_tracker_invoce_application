@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sales_tracker/featurs/utils/components/auth_screen_cmp/auth_screen_componets.dart';
 import 'package:sales_tracker/featurs/utils/constants/constants.dart';
+import 'package:sales_tracker/featurs/utils/widgets/sized_box_widgets.dart';
+import 'package:sales_tracker/featurs/utils/widgets/text_style.dart';
 
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
@@ -13,114 +15,29 @@ class AuthScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(
-                height: sWidth! / 5,
-              ),
-              Icon(
-                Icons.lock,
-                size: sWidth! / 3.5,
-              ),
-              SizedBox(
-                height: sWidth! / 80,
-              ),
+              heightSizedBox(heightValue: sWidth! / 5),
+              LockIcon(width: sWidth! / 3.5),
+              heightSizedBox(heightValue: sWidth! / 20),
               Padding(
                 padding:
                     EdgeInsets.only(left: sWidth! / 10, right: sWidth! / 10),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    SizedBox(
-                      height: sWidth! / 10,
-                    ),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'Enter your mobile number',
-                        style: TextStyle(
-                            fontSize: sWidth! / 18,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    SizedBox(
-                      height: sWidth! / 20,
-                    ),
-                    TextFormField(
-                      initialValue: "+91 ",
-                      decoration: InputDecoration(
-                        border: const UnderlineInputBorder(),
-                        hintText: "+91",
-                        hintStyle: TextStyle(
-                            fontSize: sWidth! / 18,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      keyboardType: TextInputType.phone,
-                      style: const TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
-                    ),
-                    SizedBox(
-                      height: sWidth! / 10,
-                    ),
-                    Text(
-                      'Or',
-                      style: TextStyle(
-                          fontSize: sWidth! / 35, fontWeight: FontWeight.w500),
-                    ),
-                    SizedBox(
-                      height: sWidth! / 10,
-                    ),
-                    GestureDetector(
-                      onTap: () {},
-                      child: SizedBox(
-                          child: SvgPicture.asset(
-                        'assets/images/google.svg',
-                        width: 50,
-                      )),
-                    ),
-                    SizedBox(
-                      height: sWidth! / 10,
-                    ),
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        alignment: Alignment.center,
-                        width: sWidth! / 1.3,
-                        height: sWidth! / 7,
-                        decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 51, 0, 255),
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                        ),
-                        child: Material(
-                          color: Colors.transparent,
-                          child: InkWell(
-                            onTap: () {},
-                            splashColor: const Color.fromARGB(255, 25, 95, 193),
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(10)),
-                            child: Center(
-                              child: Text(
-                                'CONTINUE',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: sWidth! / 28,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: sWidth! / 10,
-                    ),
-                    Text(
-                      'By continuing you agree to our  Terms & Policy',
-                      style: TextStyle(
-                          fontSize: sWidth! / 35, fontWeight: FontWeight.w500),
-                    ),
+                    heightSizedBox(heightValue: 40.0),
+                    FormFieldHeading(textSize: sWidth! / 18),
+                    heightSizedBox(heightValue: 22.0),
+                    MobileNumberField(fontSize: 22),
+                    heightSizedBox(heightValue: 40.0),
+                    textHeding2(data: "Or", textSize: 12),
+                    heightSizedBox(heightValue: 40.0),
+                    const GoogleSign(),
+                    heightSizedBox(heightValue: 40.0),
+                    ContinueButton(height: sWidth! / 7, width: sWidth! / 1.3),
+                    heightSizedBox(heightValue: 35.0),
+                    BottomTermsAndPolicy(
+                      fontSize: 12,
+                    )
                   ],
                 ),
               ),
