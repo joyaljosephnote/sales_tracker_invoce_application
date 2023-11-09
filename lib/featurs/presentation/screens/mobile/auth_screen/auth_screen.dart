@@ -29,11 +29,11 @@ class AuthScreen extends StatelessWidget {
                     heightSizedBox(heightValue: 22.0),
                     MobileNumberField(fontSize: 22),
                     heightSizedBox(heightValue: 40.0),
+                    ContinueButton(height: sWidth! / 7, width: sWidth! / 1.3),
+                    heightSizedBox(heightValue: 40.0),
                     textHeding2(data: "Or", textSize: 12),
                     heightSizedBox(heightValue: 40.0),
                     const GoogleSign(),
-                    heightSizedBox(heightValue: 40.0),
-                    ContinueButton(height: sWidth! / 7, width: sWidth! / 1.3),
                     heightSizedBox(heightValue: 35.0),
                     BottomTermsAndPolicy(
                       fontSize: 12,

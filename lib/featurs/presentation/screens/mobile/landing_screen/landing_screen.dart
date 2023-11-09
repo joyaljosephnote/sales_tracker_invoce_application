@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sales_tracker/featurs/business_logics/landing_page_bloc/landing_page_bloc.dart';
-import 'package:sales_tracker/featurs/presentation/screens/bills_screen/bill_screen.dart';
-import 'package:sales_tracker/featurs/presentation/screens/home_screen/home_screen.dart';
-import 'package:sales_tracker/featurs/presentation/screens/inventory_screen/inventory_screen.dart';
-import 'package:sales_tracker/featurs/presentation/screens/more/more_screen.dart';
-import 'package:sales_tracker/featurs/presentation/screens/parties/parties_screen.dart';
+import 'package:sales_tracker/featurs/presentation/screens/mobile/bills_screen/bill_screen.dart';
+import 'package:sales_tracker/featurs/presentation/screens/mobile/home_screen/home_screen.dart';
+import 'package:sales_tracker/featurs/presentation/screens/mobile/inventory_screen/inventory_screen.dart';
+import 'package:sales_tracker/featurs/presentation/screens/mobile/more/more_screen.dart';
+import 'package:sales_tracker/featurs/presentation/screens/mobile/parties/parties_screen.dart';
 import 'package:sales_tracker/featurs/utils/colors/app_colors.dart';
 import 'package:sales_tracker/featurs/utils/constants/constants.dart';
 
