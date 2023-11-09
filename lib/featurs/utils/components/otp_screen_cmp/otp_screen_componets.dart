@@ -121,7 +121,7 @@ class ResendOTP extends StatelessWidget {
               text: "Did not receive OTP? "),
           TextSpan(
               style: const TextStyle(
-                  color: Colors.blue, fontWeight: FontWeight.w500),
+                  color: textSecondaryColorBlue, fontWeight: FontWeight.w500),
               text: "Resend",
               recognizer: TapGestureRecognizer()..onTap = () async {}),
         ],
