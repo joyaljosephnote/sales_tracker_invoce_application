@@ -37,7 +37,8 @@ class AuthScreen extends StatelessWidget {
                     heightSizedBox(heightValue: 35.0),
                     BottomTermsAndPolicy(
                       fontSize: 12,
-                    )
+                    ),
+                    heightSizedBox(heightValue: 35.0),
                   ],
                 ),
               ),
