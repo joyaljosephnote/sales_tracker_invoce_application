@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:sales_tracker/featurs/presentation/routes/routs.dart';
 import 'package:sales_tracker/featurs/utils/colors/app_colors.dart';
 import 'package:sales_tracker/featurs/utils/constants/constants.dart';
 import 'package:sales_tracker/featurs/utils/widgets/Ink_well_button.dart';
@@ -105,7 +106,9 @@ class ContinueButton extends StatelessWidget {
       ),
       child: InkWellButtonWidget(
         data: "CONTINUE",
-        onTap: () {},
+        onTap: () {
+          Navigator.popAndPushNamed(context, Routes.otpVerificationScreen);
+        },
         fontSize: sWidth! / 28,
         borderRadius: 10,
       ),
