@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -16,8 +17,9 @@ class LockIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Icon(
-      Icons.lock,
+      CupertinoIcons.shield_lefthalf_fill,
       size: width,
+      color: primaryColor,
     );
   }
 }

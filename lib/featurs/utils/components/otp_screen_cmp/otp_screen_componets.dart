@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -5,8 +6,25 @@ import 'package:sales_tracker/featurs/utils/colors/app_colors.dart';
 import 'package:sales_tracker/featurs/utils/constants/constants.dart';
 import 'package:sales_tracker/featurs/utils/widgets/Ink_well_button.dart';
 
-class TextHeadingMessege extends StatelessWidget {
-  const TextHeadingMessege({
+class LockShield extends StatelessWidget {
+  const LockShield({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Icon(
+      CupertinoIcons.lock_shield_fill,
+      size: sWidth! / 3.5,
+      color: primaryColor,
+    );
+  }
+}
+
+String otpMessageText = "Please Enter OTP";
+
+class TextHeadingMessage extends StatelessWidget {
+  const TextHeadingMessage({
     super.key,
   });
 
@@ -29,93 +47,59 @@ class OTPForm extends StatelessWidget {
     return Form(
       child: Container(
         margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-        child: Row(
+        child: const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SizedBox(
               height: 68,
               width: 64,
-              child: TextFormField(
-                onChanged: (value) {
-                  if (value.length == 1) {
-                    FocusScope.of(context).nextFocus();
-                  }
-                },
-                decoration: const InputDecoration(
-                    hintText: "0", hintStyle: TextStyle(color: primaryColor)),
-                onSaved: (pin1) {},
-                style: const TextStyle(color: Colors.black),
-                keyboardType: TextInputType.number,
-                textAlign: TextAlign.center,
-                inputFormatters: [
-                  LengthLimitingTextInputFormatter(1),
-                  FilteringTextInputFormatter.digitsOnly,
-                ],
-              ),
+              child: OTPFormField(),
             ),
             SizedBox(
               height: 68,
               width: 64,
-              child: TextFormField(
-                onChanged: (value) {
-                  if (value.length == 1) {
-                    FocusScope.of(context).nextFocus();
-                  }
-                },
-                decoration: const InputDecoration(
-                    hintText: "0", hintStyle: TextStyle(color: primaryColor)),
-                style: const TextStyle(color: Colors.black),
-                keyboardType: TextInputType.number,
-                textAlign: TextAlign.center,
-                inputFormatters: [
-                  LengthLimitingTextInputFormatter(1),
-                  FilteringTextInputFormatter.digitsOnly,
-                ],
-              ),
+              child: OTPFormField(),
             ),
             SizedBox(
               height: 68,
               width: 64,
-              child: TextField(
-                onChanged: (value) {
-                  if (value.length == 1) {
-                    FocusScope.of(context).nextFocus();
-                  }
-                },
-                decoration: const InputDecoration(
-                    hintText: "0", hintStyle: TextStyle(color: primaryColor)),
-                style: const TextStyle(color: Colors.black),
-                keyboardType: TextInputType.number,
-                textAlign: TextAlign.center,
-                inputFormatters: [
-                  LengthLimitingTextInputFormatter(1),
-                  FilteringTextInputFormatter.digitsOnly,
-                ],
-              ),
+              child: OTPFormField(),
             ),
             SizedBox(
               height: 68,
               width: 64,
-              child: TextField(
-                onChanged: (value) {
-                  if (value.length == 1) {
-                    FocusScope.of(context).nextFocus();
-                  }
-                },
-                decoration: const InputDecoration(
-                    hintText: "0", hintStyle: TextStyle(color: primaryColor)),
-                style: const TextStyle(color: Colors.black),
-                keyboardType: TextInputType.number,
-                textAlign: TextAlign.center,
-                inputFormatters: [
-                  LengthLimitingTextInputFormatter(1),
-                  FilteringTextInputFormatter.digitsOnly,
-                ],
-              ),
+              child: OTPFormField(),
             ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class OTPFormField extends StatelessWidget {
+  const OTPFormField({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      onChanged: (value) {
+        if (value.length == 1) {
+          FocusScope.of(context).nextFocus();
+        }
+      },
+      decoration: const InputDecoration(
+          hintText: "0", hintStyle: TextStyle(color: textSecondaryGrey)),
+      onSaved: (pin1) {},
+      style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+      keyboardType: TextInputType.number,
+      textAlign: TextAlign.center,
+      inputFormatters: [
+        LengthLimitingTextInputFormatter(1),
+        FilteringTextInputFormatter.digitsOnly,
+      ],
     );
   }
 }

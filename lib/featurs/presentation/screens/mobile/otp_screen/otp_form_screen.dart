@@ -15,9 +15,8 @@ class OtpFormScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         leading: IconButton(
-          onPressed: () {
-            Navigator.popAndPushNamed(context, Routes.authScreen);
-          },
+          onPressed: () =>
+              Navigator.popAndPushNamed(context, Routes.authScreen),
           icon: const Icon(
             CupertinoIcons.back,
           ),
@@ -32,18 +31,22 @@ class OtpFormScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  textHeding1(data: "Please Enter OTP", textSize: 18),
+                  heightSizedBox(heightValue: 25.0),
+                  const LockShield(),
+                  heightSizedBox(heightValue: 25.0),
+                  textHeding1(data: otpMessageText, textSize: 18),
                   heightSizedBox(heightValue: 25.0),
                   const SizedBox(
                     width: 350,
-                    child: TextHeadingMessege(),
+                    child: TextHeadingMessage(),
                   ),
                   heightSizedBox(heightValue: 23.0),
                   const OTPForm(),
                   heightSizedBox(heightValue: 23.0),
                   const ResendOTP(),
                   heightSizedBox(heightValue: 25.0),
-                  const VerifyButton()
+                  const VerifyButton(),
+                  heightSizedBox(heightValue: 25.0),
                 ],
               ),
             ),

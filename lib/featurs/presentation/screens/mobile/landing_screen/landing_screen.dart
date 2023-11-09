@@ -4,8 +4,8 @@ import 'package:sales_tracker/featurs/business_logics/landing_page_bloc/landing_
 import 'package:sales_tracker/featurs/presentation/screens/mobile/bills_screen/bill_screen.dart';
 import 'package:sales_tracker/featurs/presentation/screens/mobile/home_screen/home_screen.dart';
 import 'package:sales_tracker/featurs/presentation/screens/mobile/inventory_screen/inventory_screen.dart';
-import 'package:sales_tracker/featurs/presentation/screens/mobile/more/more_screen.dart';
-import 'package:sales_tracker/featurs/presentation/screens/mobile/parties/parties_screen.dart';
+import 'package:sales_tracker/featurs/presentation/screens/mobile/more_screen/more_screen.dart';
+import 'package:sales_tracker/featurs/presentation/screens/mobile/parties_screen/parties_screen.dart';
 import 'package:sales_tracker/featurs/utils/colors/app_colors.dart';
 import 'package:sales_tracker/featurs/utils/constants/constants.dart';
 
