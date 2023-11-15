@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "342286892657",
+    "project_id": "bilsoft-4727b",
+    "storage_bucket": "bilsoft-4727b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:342286892657:android:4d90ee8887ce0bc83965d0",
+        "android_client_info": {
+          "package_name": "com.example.sales_tracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "342286892657-64ah594j6c93s8ma4281olp6ao3cocu8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbRDUPFcdBFWhHN2geRx9VN-hBq8d43ck"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "342286892657-64ah594j6c93s8ma4281olp6ao3cocu8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "342286892657-f09jv5gj4ec2kqb034g1a38ofpaue6i2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.salesTracker.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

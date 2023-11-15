@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:sales_tracker/featurs/business_logics/auth/auth_bloc.dart';
 import 'package:sales_tracker/featurs/presentation/routes/routs.dart';
 import 'package:sales_tracker/featurs/utils/colors/app_colors.dart';
 import 'package:sales_tracker/featurs/utils/constants/constants.dart';
@@ -77,14 +79,29 @@ class GoogleSign extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      borderRadius: const BorderRadius.all(
-        Radius.circular(25),
-      ),
-      onTap: () {},
-      child: SvgPicture.asset(
-        'assets/images/google.svg',
-        width: 48,
+    final blocProvider = BlocProvider.of<AuthBloc>(context);
+    return BlocListener<AuthBloc, AuthState>(
+      listenWhen: (previous, current) => current is AuthSuccess,
+      listener: (context, state) {
+        state as AuthSuccess;
+        if (AuthResults.googleSignInVerified == state.authResults) {
+          Navigator.popAndPushNamed(context, Routes.authScreen);
+        } else if (state.authResults ==
+            AuthResults.googleSignInVerifiedNewUser) {
+          Navigator.popAndPushNamed(context, Routes.businessProfileScreen);
+        }
+      },
+      child: InkWell(
+        borderRadius: const BorderRadius.all(
+          Radius.circular(25),
+        ),
+        onTap: () {
+          blocProvider.add(GoogleSignUpEvent());
+        },
+        child: SvgPicture.asset(
+          'assets/images/google.svg',
+          width: 48,
+        ),
       ),
     );
   }

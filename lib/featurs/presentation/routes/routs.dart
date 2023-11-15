@@ -3,4 +3,5 @@ class Routes {
   static const String authScreen = '/sign_in';
   static const String otpVerificationScreen = '/otp_verification';
   static const String landingScreen = '/landig_screen';
+  static const String businessProfileScreen = '/business_profile_screen';
 }

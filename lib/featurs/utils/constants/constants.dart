@@ -13,3 +13,19 @@ void screenSizeFinder(BuildContext context) {
   sHeight = size.height;
   sWidth = size.width;
 }
+
+enum AuthResults {
+  initial,
+  loginSuccess,
+  signUpSuccess,
+  emailAlreadyExists,
+  invalidEmail,
+  weakPassword,
+  userNotFound,
+  wrongPassword,
+  error,
+  verified,
+  googleSignInVerified,
+  googleSignInVerifiedNewUser,
+  passwordReset
+}

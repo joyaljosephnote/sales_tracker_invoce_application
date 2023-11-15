@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:sales_tracker/featurs/presentation/routes/routs.dart';
 import 'package:sales_tracker/featurs/utils/colors/app_colors.dart';
 import 'package:sales_tracker/featurs/utils/constants/constants.dart';
 import 'package:sales_tracker/featurs/utils/widgets/Ink_well_button.dart';
@@ -148,7 +149,9 @@ class VerifyButton extends StatelessWidget {
         borderRadius: 12,
         data: "VERIFY",
         fontSize: sWidth! / 28,
-        onTap: () {},
+        onTap: () {
+          Navigator.popAndPushNamed(context, Routes.businessProfileScreen);
+        },
       ),
     );
   }
