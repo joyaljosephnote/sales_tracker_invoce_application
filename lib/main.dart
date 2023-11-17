@@ -33,7 +33,8 @@ class MyApp extends StatelessWidget {
         title: 'BilSoft - Invoice application',
         theme: ThemeData(
           splashColor: Colors.transparent,
-          colorScheme: ColorScheme.fromSeed(seedColor: primaryColor),
+          colorScheme:
+              ColorScheme.fromSeed(seedColor: AppTheamColors().primaryColor),
           useMaterial3: true,
         ),
         initialRoute: "/",

@@ -23,13 +23,13 @@ class InkWellButtonWidget extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         onTap: onTap,
-        splashColor: buttonSplashColor,
+        splashColor: AppButtonColors().buttonSplashColor,
         borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
         child: Center(
           child: Text(
             data,
             style: TextStyle(
-              color: textPrimaryColor,
+              color: AppTextColors().textPrimaryColor,
               fontWeight: FontWeight.bold,
               fontSize: fontSize,
             ),

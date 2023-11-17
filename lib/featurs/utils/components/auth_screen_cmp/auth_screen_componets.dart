@@ -21,7 +21,7 @@ class LockIcon extends StatelessWidget {
     return Icon(
       CupertinoIcons.shield_lefthalf_fill,
       size: width,
-      color: primaryColor,
+      color: AppTheamColors().primaryColor,
     );
   }
 }
@@ -53,10 +53,11 @@ class MobileNumberField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: context.read<AuthBloc>().mobileController,
       validator: (value) {
         return null;
       },
-      initialValue: "+91 ",
+      // initialValue: "+91 ",
       decoration: InputDecoration(
         border: const UnderlineInputBorder(),
         hintText: "+91",
@@ -116,20 +117,30 @@ class ContinueButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      height: height,
-      decoration: const BoxDecoration(
-        color: buttonColor,
-        borderRadius: BorderRadius.all(Radius.circular(10)),
-      ),
-      child: InkWellButtonWidget(
-        data: "CONTINUE",
-        onTap: () {
+    return BlocListener<AuthBloc, AuthState>(
+      listener: (context, state) {
+        if (state is OtpSend) {
           Navigator.popAndPushNamed(context, Routes.otpVerificationScreen);
-        },
-        fontSize: sWidth! / 28,
-        borderRadius: 10,
+        }
+      },
+      child: Container(
+        width: width,
+        height: height,
+        decoration: BoxDecoration(
+          color: AppButtonColors().buttonColor,
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
+        ),
+        child: InkWellButtonWidget(
+          data: "CONTINUE",
+          onTap: () {
+            print('continue pressed => 1');
+            context.read<AuthBloc>().add(VerifyPhone(
+                phoneNumber:
+                    context.read<AuthBloc>().mobileController.text.trim()));
+          },
+          fontSize: sWidth! / 28,
+          borderRadius: 10,
+        ),
       ),
     );
   }

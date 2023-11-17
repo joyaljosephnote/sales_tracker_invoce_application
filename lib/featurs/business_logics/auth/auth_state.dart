@@ -17,3 +17,7 @@ class AuthSuccess extends AuthState {
 }
 
 class EmailVerified extends AuthState {}
+
+class OtpVerified extends AuthState {}
+
+class OtpSend extends AuthState {}

@@ -54,11 +54,11 @@ class LandingScreen extends StatelessWidget {
             items: bottomnavItems,
             type: BottomNavigationBarType.fixed,
             currentIndex: state.tabIndex,
-            selectedItemColor: primaryColor,
+            selectedItemColor: AppTheamColors().primaryColor,
             selectedFontSize: text9,
             unselectedFontSize: text9,
             showUnselectedLabels: true,
-            unselectedItemColor: navUnselectedColor,
+            unselectedItemColor: AppTheamColors().navUnselectedColor,
             onTap: (index) => BlocProvider.of<LandingPageBloc>(context)
                 .add(TabChange(tabIndex: index)),
           ),

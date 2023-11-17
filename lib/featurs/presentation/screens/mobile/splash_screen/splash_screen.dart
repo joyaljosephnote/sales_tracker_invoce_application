@@ -17,7 +17,7 @@ class SplashScreen extends StatelessWidget {
       Navigator.popAndPushNamed(context, Routes.authScreen);
     });
     return Scaffold(
-      backgroundColor: primaryColor,
+      backgroundColor: AppTheamColors().primaryColor,
       body: SafeArea(
         child: Center(
           child: Column(
