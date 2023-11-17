@@ -1,13 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sales_tracker/featurs/business_logics/business_profile_bloc/business_profile_bloc.dart';
 import 'package:sales_tracker/featurs/presentation/routes/routs.dart';
 import 'package:sales_tracker/featurs/utils/colors/app_colors.dart';
+import 'package:sales_tracker/featurs/utils/components/bussiness_profile_cmp/business_profile_cmp.dart';
 import 'package:sales_tracker/featurs/utils/constants/constants.dart';
 import 'package:sales_tracker/featurs/utils/widgets/Ink_well_button.dart';
 import 'package:sales_tracker/featurs/utils/widgets/sized_box_widgets.dart';
-import 'package:sales_tracker/featurs/utils/widgets/text_style.dart';
 
 class BusinessProfileScreen extends StatelessWidget {
   const BusinessProfileScreen({super.key});
@@ -33,34 +31,22 @@ class BusinessProfileScreen extends StatelessWidget {
             child: Column(
               children: [
                 heightSizedBox(heightValue: 40.0),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: textHeding1(
-                    data: 'Enter your company details',
-                    textSize: 18,
-                  ),
-                ),
+                PageMainHeadding(textSize: 18.0),
                 heightSizedBox(heightValue: 18.0),
                 TextFormField(
                   validator: (value) {
                     return null;
                   },
                   textCapitalization: TextCapitalization.sentences,
-                  decoration: const InputDecoration(
-                    focusColor: Colors.amber,
-                    border: UnderlineInputBorder(),
-                    hintText: "Company Name",
-                    hintStyle: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.blueGrey),
+                  decoration: InputDecoration(
+                    border: const UnderlineInputBorder(),
+                    hintText: BusinessTextFieldNames().BusinessTextFieldName[1],
+                    hintStyle: BusinessProfileTextStyleAndDecoration()
+                        .ProfileHintTextStyle(15),
                   ),
                   keyboardType: TextInputType.text,
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: AppTheamColors().primaryColor,
-                  ),
+                  style: BusinessProfileTextStyleAndDecoration()
+                      .ProfileTextStyle(15),
                 ),
                 heightSizedBox(heightValue: 18.0),
                 TextFormField(
@@ -68,20 +54,14 @@ class BusinessProfileScreen extends StatelessWidget {
                     return null;
                   },
                   textCapitalization: TextCapitalization.characters,
-                  decoration: const InputDecoration(
-                    focusColor: Colors.amber,
-                    border: UnderlineInputBorder(),
-                    hintText: "GST Number",
-                    hintStyle: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.blueGrey),
+                  decoration: InputDecoration(
+                    border: const UnderlineInputBorder(),
+                    hintText: BusinessTextFieldNames().BusinessTextFieldName[2],
+                    hintStyle: BusinessProfileTextStyleAndDecoration()
+                        .ProfileHintTextStyle(15),
                   ),
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: AppTheamColors().primaryColor,
-                  ),
+                  style: BusinessProfileTextStyleAndDecoration()
+                      .ProfileTextStyle(15),
                 ),
                 heightSizedBox(heightValue: 18.0),
                 TextFormField(
@@ -89,20 +69,14 @@ class BusinessProfileScreen extends StatelessWidget {
                     return null;
                   },
                   textCapitalization: TextCapitalization.characters,
-                  decoration: const InputDecoration(
-                    focusColor: Colors.amber,
-                    border: UnderlineInputBorder(),
-                    hintText: "Street Address",
-                    hintStyle: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.blueGrey),
+                  decoration: InputDecoration(
+                    border: const UnderlineInputBorder(),
+                    hintText: BusinessTextFieldNames().BusinessTextFieldName[3],
+                    hintStyle: BusinessProfileTextStyleAndDecoration()
+                        .ProfileHintTextStyle(15),
                   ),
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: AppTheamColors().primaryColor,
-                  ),
+                  style: BusinessProfileTextStyleAndDecoration()
+                      .ProfileTextStyle(15),
                 ),
                 heightSizedBox(heightValue: 18.0),
                 TextFormField(
@@ -110,20 +84,14 @@ class BusinessProfileScreen extends StatelessWidget {
                     return null;
                   },
                   textCapitalization: TextCapitalization.characters,
-                  decoration: const InputDecoration(
-                    focusColor: Colors.amber,
-                    border: UnderlineInputBorder(),
-                    hintText: "City",
-                    hintStyle: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.blueGrey),
+                  decoration: InputDecoration(
+                    border: const UnderlineInputBorder(),
+                    hintText: BusinessTextFieldNames().BusinessTextFieldName[4],
+                    hintStyle: BusinessProfileTextStyleAndDecoration()
+                        .ProfileHintTextStyle(15),
                   ),
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: AppTheamColors().primaryColor,
-                  ),
+                  style: BusinessProfileTextStyleAndDecoration()
+                      .ProfileTextStyle(15),
                 ),
                 heightSizedBox(heightValue: 18.0),
                 TextFormField(
@@ -131,20 +99,14 @@ class BusinessProfileScreen extends StatelessWidget {
                     return null;
                   },
                   textCapitalization: TextCapitalization.characters,
-                  decoration: const InputDecoration(
-                    focusColor: Colors.amber,
-                    border: UnderlineInputBorder(),
-                    hintText: "State",
-                    hintStyle: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.blueGrey),
+                  decoration: InputDecoration(
+                    border: const UnderlineInputBorder(),
+                    hintText: BusinessTextFieldNames().BusinessTextFieldName[5],
+                    hintStyle: BusinessProfileTextStyleAndDecoration()
+                        .ProfileHintTextStyle(15),
                   ),
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: AppTheamColors().primaryColor,
-                  ),
+                  style: BusinessProfileTextStyleAndDecoration()
+                      .ProfileTextStyle(15),
                 ),
                 heightSizedBox(heightValue: 18.0),
                 TextFormField(
@@ -152,20 +114,14 @@ class BusinessProfileScreen extends StatelessWidget {
                     return null;
                   },
                   keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                    focusColor: Colors.amber,
-                    border: UnderlineInputBorder(),
-                    hintText: "ZIP Code",
-                    hintStyle: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.blueGrey),
+                  decoration: InputDecoration(
+                    border: const UnderlineInputBorder(),
+                    hintText: BusinessTextFieldNames().BusinessTextFieldName[6],
+                    hintStyle: BusinessProfileTextStyleAndDecoration()
+                        .ProfileHintTextStyle(15),
                   ),
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: AppTheamColors().primaryColor,
-                  ),
+                  style: BusinessProfileTextStyleAndDecoration()
+                      .ProfileTextStyle(15),
                 ),
                 heightSizedBox(heightValue: 18.0),
                 TextFormField(
@@ -173,20 +129,14 @@ class BusinessProfileScreen extends StatelessWidget {
                     return null;
                   },
                   keyboardType: TextInputType.phone,
-                  decoration: const InputDecoration(
-                    focusColor: Colors.amber,
-                    border: UnderlineInputBorder(),
-                    hintText: "Contact Number",
-                    hintStyle: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.blueGrey),
+                  decoration: InputDecoration(
+                    border: const UnderlineInputBorder(),
+                    hintText: BusinessTextFieldNames().BusinessTextFieldName[7],
+                    hintStyle: BusinessProfileTextStyleAndDecoration()
+                        .ProfileHintTextStyle(15),
                   ),
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: AppTheamColors().primaryColor,
-                  ),
+                  style: BusinessProfileTextStyleAndDecoration()
+                      .ProfileTextStyle(15),
                 ),
                 heightSizedBox(heightValue: 40.0),
                 Container(
@@ -201,7 +151,10 @@ class BusinessProfileScreen extends StatelessWidget {
                     data: "SAVE",
                     fontSize: sWidth! / 28,
                     onTap: () {
-                      // context.read<BusinessProfileBloc>().add(SaveBusinessProfile(pro: Profiledata(companyName: companyName, gst: gst)))
+                      // context.read<BusinessProfileBloc>().add(
+                      //     SaveBusinessProfile(
+                      //         pro: Profiledata(
+                      //             companyName: , gstNumber: ,)));
                       Navigator.popAndPushNamed(context, Routes.landingScreen);
                     },
                   ),

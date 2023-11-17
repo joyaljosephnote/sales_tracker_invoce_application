@@ -11,9 +11,19 @@ class SaveBusinessProfile extends BusinessProfileEvent {
 
 class Profiledata {
   String companyName;
-  String gst;
+  String gstNumber;
+  String streetAddress;
+  String city;
+  String state;
+  String zipCode;
+  String contactNumber;
   Profiledata({
     required this.companyName,
-    required this.gst,
+    required this.gstNumber,
+    required this.streetAddress,
+    required this.city,
+    required this.state,
+    required this.zipCode,
+    required this.contactNumber,
   });
 }
