@@ -49,18 +49,28 @@ class LandingScreen extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
+          backgroundColor: const Color.fromARGB(255, 213, 218, 252),
           body: Center(child: bottomNavScreen.elementAt(state.tabIndex)),
-          bottomNavigationBar: BottomNavigationBar(
-            items: bottomnavItems,
-            type: BottomNavigationBarType.fixed,
-            currentIndex: state.tabIndex,
-            selectedItemColor: AppTheamColors().primaryColor,
-            selectedFontSize: text9,
-            unselectedFontSize: text9,
-            showUnselectedLabels: true,
-            unselectedItemColor: AppTheamColors().navUnselectedColor,
-            onTap: (index) => BlocProvider.of<LandingPageBloc>(context)
-                .add(TabChange(tabIndex: index)),
+          bottomNavigationBar: ClipRRect(
+            borderRadius: const BorderRadius.only(
+              topRight: Radius.circular(12),
+              topLeft: Radius.circular(12),
+              // bottomLeft: Radius.circular(12),
+              // bottomRight: Radius.circular(12),
+            ),
+            child: BottomNavigationBar(
+              items: bottomnavItems,
+              type: BottomNavigationBarType.fixed,
+              currentIndex: state.tabIndex,
+              backgroundColor: Color.fromARGB(255, 242, 244, 255),
+              selectedItemColor: AppTheamColors().primaryColor,
+              selectedFontSize: text9,
+              unselectedFontSize: text9,
+              showUnselectedLabels: true,
+              unselectedItemColor: AppTheamColors().navUnselectedColor,
+              onTap: (index) => BlocProvider.of<LandingPageBloc>(context)
+                  .add(TabChange(tabIndex: index)),
+            ),
           ),
         );
       },
