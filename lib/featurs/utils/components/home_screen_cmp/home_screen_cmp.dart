@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:sales_tracker/featurs/utils/colors/app_colors.dart';
+import 'package:sales_tracker/featurs/utils/constants/constants.dart';
+import 'package:sales_tracker/featurs/utils/widgets/box_decoration_widget.dart';
 import 'package:sales_tracker/featurs/utils/widgets/sized_box_widgets.dart';
 import 'package:sales_tracker/featurs/utils/widgets/text_style.dart';
 
@@ -26,6 +28,97 @@ class HomeScreenHeadings {
   // ignore: non_constant_identifier_names
   Container QuickAccessHeadings() =>
       Container(child: textHeding1(data: "Quick Access", textSize: 15));
+}
+
+class CompanyName extends StatelessWidget {
+  const CompanyName({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        child: textHeding1(data: "Hello Tech Malayalam", textSize: 16));
+  }
+}
+
+class SalesAndPurchaseFilter extends StatelessWidget {
+  const SalesAndPurchaseFilter({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 105,
+      width: double.infinity,
+      decoration: BoxDecorationForContainer().BoxShadowDecoration(),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 12, right: 12),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                DropdownButton(
+                  elevation: 0,
+                  hint: textHeding2(data: "Select Filter", textSize: 14),
+                  items: dropdownItems,
+                  onChanged: (value) {},
+                  underline: Container(),
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: const Text("View Bills"),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                SizedBox(
+                  width: sWidth! / 2,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Sales",
+                        style: SalesAndPurchaseFilterTextStyle(),
+                      ),
+                      Text(
+                        "₹ 100.00",
+                        style: SalesAndPurchaseFilterTextStyle(),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Purchase",
+                        style: SalesAndPurchaseFilterTextStyle(),
+                      ),
+                      Text(
+                        "₹ 849.00",
+                        style: SalesAndPurchaseFilterTextStyle(),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  // ignore: non_constant_identifier_names
+  TextStyle SalesAndPurchaseFilterTextStyle() {
+    return TextStyle(
+        color: AppTextColors().textSecondaryColor, fontWeight: FontWeight.bold);
+  }
 }
 
 class CreateMenuNavigations extends StatelessWidget {
@@ -75,7 +168,7 @@ class CreateMenuNavigations extends StatelessWidget {
         ),
         MenuIconsWidget(
           buttonName: "Expenses",
-          iconSymbole: Ionicons.share_outline,
+          iconSymbole: Ionicons.server_outline,
           onTap: () {},
         ),
       ],
@@ -100,27 +193,27 @@ class EasyOperationsMenu extends StatelessWidget {
       children: [
         MenuIconsWidget(
           buttonName: "Change",
-          iconSymbole: Ionicons.document_text_outline,
+          iconSymbole: Ionicons.repeat_outline,
           onTap: () {},
         ),
         MenuIconsWidget(
           buttonName: "Transfer",
-          iconSymbole: Ionicons.cart_outline,
+          iconSymbole: Ionicons.swap_horizontal_outline,
           onTap: () {},
         ),
         MenuIconsWidget(
           buttonName: "Incoming",
-          iconSymbole: Ionicons.newspaper_outline,
+          iconSymbole: Ionicons.download_outline,
           onTap: () {},
         ),
         MenuIconsWidget(
           buttonName: "Receipts",
-          iconSymbole: Ionicons.bag_add_outline,
+          iconSymbole: Ionicons.reader_outline,
           onTap: () {},
         ),
         MenuIconsWidget(
           buttonName: "More",
-          iconSymbole: Ionicons.create_outline,
+          iconSymbole: Ionicons.list_outline,
           onTap: () {},
         ),
       ],
@@ -145,32 +238,32 @@ class QuickAccessMenu extends StatelessWidget {
       children: [
         MenuIconsWidget(
           buttonName: "Report",
-          iconSymbole: Ionicons.document_text_outline,
+          iconSymbole: Ionicons.documents_outline,
           onTap: () {},
         ),
         MenuIconsWidget(
           buttonName: "Analytics",
-          iconSymbole: Ionicons.cart_outline,
+          iconSymbole: Ionicons.trending_up_outline,
           onTap: () {},
         ),
         MenuIconsWidget(
           buttonName: "Doc Settings",
-          iconSymbole: Ionicons.newspaper_outline,
+          iconSymbole: Ionicons.receipt_outline,
           onTap: () {},
         ),
         MenuIconsWidget(
           buttonName: "Help",
-          iconSymbole: Ionicons.bag_add_outline,
+          iconSymbole: Ionicons.help_circle_outline,
           onTap: () {},
         ),
         MenuIconsWidget(
           buttonName: "Day Book",
-          iconSymbole: Ionicons.create_outline,
+          iconSymbole: Ionicons.book_outline,
           onTap: () {},
         ),
         MenuIconsWidget(
           buttonName: "Balance",
-          iconSymbole: Ionicons.create_outline,
+          iconSymbole: Ionicons.wallet_outline,
           onTap: () {},
         ),
       ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:sales_tracker/featurs/business_logics/landing_page_bloc/landing_page_bloc.dart';
 import 'package:sales_tracker/featurs/presentation/screens/mobile/bills_screen/bill_screen.dart';
 import 'package:sales_tracker/featurs/presentation/screens/mobile/home_screen/home_screen.dart';
@@ -11,23 +12,23 @@ import 'package:sales_tracker/featurs/utils/constants/constants.dart';
 
 List<BottomNavigationBarItem> bottomnavItems = const <BottomNavigationBarItem>[
   BottomNavigationBarItem(
-    icon: Icon(Icons.home_rounded),
+    icon: Icon(Ionicons.home_outline),
     label: 'Home',
   ),
   BottomNavigationBarItem(
-    icon: Icon(Icons.bookmark_rounded),
+    icon: Icon(Ionicons.bookmarks_outline),
     label: 'Bills',
   ),
   BottomNavigationBarItem(
-    icon: Icon(Icons.add_box_rounded),
+    icon: Icon(Ionicons.duplicate_outline),
     label: 'Inventory',
   ),
   BottomNavigationBarItem(
-    icon: Icon(Icons.group_rounded),
+    icon: Icon(Ionicons.people_outline),
     label: 'Parties',
   ),
   BottomNavigationBarItem(
-    icon: Icon(Icons.window),
+    icon: Icon(Ionicons.grid_outline),
     label: 'More',
   ),
 ];
@@ -49,7 +50,7 @@ class LandingScreen extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
-          backgroundColor: const Color.fromARGB(255, 213, 218, 252),
+          backgroundColor: AppTheamColors().scaffoldBackgroundColor,
           body: Center(child: bottomNavScreen.elementAt(state.tabIndex)),
           bottomNavigationBar: ClipRRect(
             borderRadius: const BorderRadius.only(
@@ -62,7 +63,7 @@ class LandingScreen extends StatelessWidget {
               items: bottomnavItems,
               type: BottomNavigationBarType.fixed,
               currentIndex: state.tabIndex,
-              backgroundColor: Color.fromARGB(255, 242, 244, 255),
+              backgroundColor: AppTheamColors().scaffoldBackgroundColor,
               selectedItemColor: AppTheamColors().primaryColor,
               selectedFontSize: text9,
               unselectedFontSize: text9,
