@@ -63,7 +63,7 @@ class LandingScreen extends StatelessWidget {
               items: bottomnavItems,
               type: BottomNavigationBarType.fixed,
               currentIndex: state.tabIndex,
-              backgroundColor: AppTheamColors().scaffoldBackgroundColor,
+              backgroundColor: AppTheamColors().boxContainerColor,
               selectedItemColor: AppTheamColors().primaryColor,
               selectedFontSize: text9,
               unselectedFontSize: text9,

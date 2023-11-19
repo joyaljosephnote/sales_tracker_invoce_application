@@ -13,9 +13,9 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppTheamColors().scaffoldBackgroundColor,
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-          child: SingleChildScrollView(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(13),
             child: Column(
               children: [
                 const Align(

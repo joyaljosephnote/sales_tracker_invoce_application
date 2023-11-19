@@ -86,7 +86,7 @@ class SalesAndPurchaseFilter extends StatelessWidget {
                       ),
                       Text(
                         "₹ 100.00",
-                        style: SalesAndPurchaseFilterTextStyle(),
+                        style: SalesAndPurchaseTextStyle(),
                       ),
                     ],
                   ),
@@ -101,7 +101,7 @@ class SalesAndPurchaseFilter extends StatelessWidget {
                       ),
                       Text(
                         "₹ 849.00",
-                        style: SalesAndPurchaseFilterTextStyle(),
+                        style: SalesAndPurchaseTextStyle(),
                       ),
                     ],
                   ),
@@ -116,6 +116,12 @@ class SalesAndPurchaseFilter extends StatelessWidget {
 
   // ignore: non_constant_identifier_names
   TextStyle SalesAndPurchaseFilterTextStyle() {
+    return TextStyle(
+        color: AppTextColors().textFilterColor, fontWeight: FontWeight.bold);
+  }
+
+  // ignore: non_constant_identifier_names
+  TextStyle SalesAndPurchaseTextStyle() {
     return TextStyle(
         color: AppTextColors().textSecondaryColor, fontWeight: FontWeight.bold);
   }
@@ -299,8 +305,10 @@ class MenuIconsWidget extends StatelessWidget {
           heightSizedBox(heightValue: 8.0),
           Text(
             buttonName,
-            style: const TextStyle(
-                color: Colors.black, fontSize: 10, fontWeight: FontWeight.w600),
+            style: TextStyle(
+                color: AppTextColors().textSecondaryColor,
+                fontSize: 10,
+                fontWeight: FontWeight.w600),
           ),
         ],
       ),

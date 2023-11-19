@@ -5,16 +5,16 @@ class BoxDecorationForContainer {
   // ignore: non_constant_identifier_names
   BoxDecoration BoxShadowDecoration() {
     return BoxDecoration(
-      color: AppTheamColors().scaffoldBackgroundColor,
+      color: AppTheamColors().boxContainerColor,
       borderRadius: const BorderRadius.all(
         Radius.circular(12),
       ),
-      boxShadow: const [
+      boxShadow: [
         BoxShadow(
-          color: Color.fromARGB(255, 28, 11, 127),
+          color: AppTheamColors().boxShadowColor,
           spreadRadius: 0,
-          blurRadius: 6,
-          offset: Offset(0, 3),
+          blurRadius: 11,
+          offset: const Offset(0, 3),
         ),
       ],
     );
