@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sales_tracker/featurs/utils/components/bills_screen_cmp/bills_screen_cmp.dart';
 
 class BillScreen extends StatelessWidget {
   const BillScreen({super.key});
@@ -6,7 +7,7 @@ class BillScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(child: Text('Bill Screen')),
+      body: SafeArea(child: Center(child: ScreenTabViewInBillScreen())),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:sales_tracker/featurs/presentation/routes/routs.dart';
 import 'package:sales_tracker/featurs/utils/colors/app_colors.dart';
 import 'package:sales_tracker/featurs/utils/constants/constants.dart';
 import 'package:sales_tracker/featurs/utils/widgets/box_decoration_widget.dart';
@@ -19,6 +20,13 @@ List<DropdownMenuItem<String>> get dropdownItems {
 // ignore: non_constant_identifier_names
 
 class HomeScreenHeadings {
+  AppBar homeAppBar() {
+    return AppBar(
+        elevation: 2,
+        backgroundColor: Colors.white,
+        title: textHeding1(data: "Hello Tech Malayalam", textSize: 18));
+  }
+
   // ignore: non_constant_identifier_names
   Container CreateHeadings() =>
       Container(child: textHeding1(data: "Create", textSize: 15));
@@ -145,7 +153,9 @@ class CreateMenuNavigations extends StatelessWidget {
         MenuIconsWidget(
           buttonName: "Invoice",
           iconSymbole: Ionicons.document_text_outline,
-          onTap: () {},
+          onTap: () {
+            Navigator.pushNamed(context, Routes.invoiceCreationScreen);
+          },
         ),
         MenuIconsWidget(
           buttonName: "Purchase",
@@ -293,7 +303,7 @@ class MenuIconsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       splashFactory: NoSplash.splashFactory,
-      onTap: () {},
+      onTap: onTap,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

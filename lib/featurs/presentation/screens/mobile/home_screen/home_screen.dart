@@ -11,6 +11,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: HomeScreenHeadings().homeAppBar(),
       backgroundColor: AppTheamColors().scaffoldBackgroundColor,
       body: SafeArea(
         child: SingleChildScrollView(
@@ -18,11 +19,6 @@ class HomeScreen extends StatelessWidget {
             padding: const EdgeInsets.all(13),
             child: Column(
               children: [
-                const Align(
-                  alignment: Alignment.centerLeft,
-                  child: CompanyName(),
-                ),
-                heightSizedBox(heightValue: 13.0),
                 const SalesAndPurchaseFilter(),
                 heightSizedBox(heightValue: 10.0),
                 Align(

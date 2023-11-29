@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 class AppTheamColors {
   final primaryColor = const Color(0xFF003AAD);
   final navUnselectedColor = Colors.black;
-  final scaffoldBackgroundColor = Color.fromARGB(255, 255, 255, 255);
+  final scaffoldBackgroundColor = Colors.white;
   final boxContainerColor = const Color.fromARGB(255, 248, 247, 255);
   final boxShadowColor = const Color.fromARGB(255, 87, 87, 87);
+  final textFeildColor = const Color.fromARGB(255, 235, 235, 235);
 }
 
 class AppTextColors {
