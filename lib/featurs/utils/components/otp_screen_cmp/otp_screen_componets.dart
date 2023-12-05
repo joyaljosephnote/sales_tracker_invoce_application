@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -157,9 +156,7 @@ class ResendOTP extends StatelessWidget {
 }
 
 class VerifyButton extends StatelessWidget {
-  VerifyButton({super.key, required this.verificationId});
-
-  final String verificationId;
+  const VerifyButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -191,30 +188,6 @@ class VerifyButton extends StatelessWidget {
                           context.read<AuthBloc>().otpController5.text +
                           context.read<AuthBloc>().otpController6.text),
                 );
-            // Navigator.popAndPushNamed(context, Routes.businessProfileScreen);
-
-            // try {
-            //   PhoneAuthCredential credential = PhoneAuthProvider.credential(
-            //       verificationId: verificationId,
-            //       smsCode: (context.read<AuthBloc>().otpController1.text +
-            //               context.read<AuthBloc>().otpController2.text +
-            //               context.read<AuthBloc>().otpController3.text +
-            //               context.read<AuthBloc>().otpController4.text +
-            //               context.read<AuthBloc>().otpController5.text +
-            //               context.read<AuthBloc>().otpController6.text)
-            //           .trim()
-            //           .toString());
-            //   FirebaseAuth.instance
-            //       .signInWithCredential(credential)
-            //       .then((value) {
-            //     // emit(OtpVerified());
-            //     Navigator.popAndPushNamed(
-            //         context, Routes.businessProfileScreen);
-            //   });
-            // } catch (error) {
-            //   // ignore: avoid_print
-            //   print(error.toString());
-            // }
           },
         ),
       ),

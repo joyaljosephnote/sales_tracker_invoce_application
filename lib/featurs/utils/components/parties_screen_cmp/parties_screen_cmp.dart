@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sales_tracker/featurs/presentation/screens/mobile/bills_screen/more_screen.dart';
-import 'package:sales_tracker/featurs/presentation/screens/mobile/bills_screen/purchase_screen.dart';
-import 'package:sales_tracker/featurs/presentation/screens/mobile/bills_screen/sales_screen.dart';
 import 'package:sales_tracker/featurs/presentation/screens/mobile/parties_screen/customer_screen.dart';
 import 'package:sales_tracker/featurs/presentation/screens/mobile/parties_screen/vendors_screen.dart';
 import 'package:sales_tracker/featurs/utils/constants/constants.dart';

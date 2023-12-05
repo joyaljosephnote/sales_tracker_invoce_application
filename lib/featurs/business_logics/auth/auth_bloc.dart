@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sales_tracker/data/repositories/auth_repository/auth_repositories.dart';
 import 'package:sales_tracker/featurs/utils/constants/constants.dart';
@@ -36,9 +35,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   Future<void> verifyPhoneEvent(
       VerifyPhone event, Emitter<AuthState> emit) async {
+    // ignore: avoid_print
     print('continue pressed => 2');
+    // ignore: avoid_print
     print('otp bloc phone -> ${event.phoneNumber}');
     final result = await authRepository.phoneNumberCodeSend(event.phoneNumber);
+    // ignore: avoid_print
     print('otpphone bloc => $result');
     if (result != null) {
       verificationId = result;
