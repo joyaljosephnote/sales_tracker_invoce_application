@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:sales_tracker/featurs/presentation/routes/routs.dart';
 import 'package:sales_tracker/featurs/utils/colors/app_colors.dart';
-import 'package:sales_tracker/featurs/utils/components/bills_screen_cmp/invoice_creation_cmp.dart';
 import 'package:sales_tracker/featurs/utils/widgets/floting_action_button_widget.dart';
 import 'package:sales_tracker/featurs/utils/widgets/sized_box_widgets.dart';
-import 'package:sales_tracker/featurs/utils/widgets/text_form_field_widget.dart';
 
 class InventorySectionHeadings {
   // ignore: non_constant_identifier_names
@@ -39,7 +37,7 @@ class InventoryFlotingButton extends StatelessWidget {
     return FlotingButtonWidget(
         buttonName: "Add Product",
         onPresed: () {
-          Navigator.popAndPushNamed(context, Routes.addNewProductScreen);
+          Navigator.pushNamed(context, Routes.addNewProductScreen);
         },
         icon: Icons.add);
   }

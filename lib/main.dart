@@ -8,7 +8,7 @@ import 'package:sales_tracker/featurs/presentation/routes/generated_rountes.dart
 import 'package:sales_tracker/featurs/utils/colors/app_colors.dart';
 import 'package:sales_tracker/firebase_options.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,

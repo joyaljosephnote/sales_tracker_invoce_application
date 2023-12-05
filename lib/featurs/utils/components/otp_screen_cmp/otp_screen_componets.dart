@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -49,33 +50,45 @@ class OTPForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return Form(
       child: Container(
-        margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+        margin: const EdgeInsets.fromLTRB(5, 0, 5, 0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SizedBox(
-              height: 68,
-              width: 64,
+              height: 55,
+              width: 40,
               child: OTPFormField(
                   controller: context.read<AuthBloc>().otpController1),
             ),
             SizedBox(
-              height: 68,
-              width: 64,
+              height: 55,
+              width: 40,
               child: OTPFormField(
                   controller: context.read<AuthBloc>().otpController2),
             ),
             SizedBox(
-              height: 68,
-              width: 64,
+              height: 55,
+              width: 40,
               child: OTPFormField(
                   controller: context.read<AuthBloc>().otpController3),
             ),
             SizedBox(
-              height: 68,
-              width: 64,
+              height: 55,
+              width: 40,
               child: OTPFormField(
                   controller: context.read<AuthBloc>().otpController4),
+            ),
+            SizedBox(
+              height: 55,
+              width: 40,
+              child: OTPFormField(
+                  controller: context.read<AuthBloc>().otpController5),
+            ),
+            SizedBox(
+              height: 55,
+              width: 40,
+              child: OTPFormField(
+                  controller: context.read<AuthBloc>().otpController6),
             ),
           ],
         ),
@@ -99,6 +112,7 @@ class OTPFormField extends StatelessWidget {
         if (value.length == 1) {
           FocusScope.of(context).nextFocus();
         }
+        // print(controller.text);
       },
       decoration: InputDecoration(
           hintText: "0",
@@ -143,9 +157,9 @@ class ResendOTP extends StatelessWidget {
 }
 
 class VerifyButton extends StatelessWidget {
-  const VerifyButton({
-    super.key,
-  });
+  VerifyButton({super.key, required this.verificationId});
+
+  final String verificationId;
 
   @override
   Widget build(BuildContext context) {
@@ -168,11 +182,39 @@ class VerifyButton extends StatelessWidget {
           data: "VERIFY",
           fontSize: sWidth! / 28,
           onTap: () {
-            context.read<AuthBloc>().add(VerifyOtp(
-                otp: context.read<AuthBloc>().otpController1.text +
-                    context.read<AuthBloc>().otpController2.text +
-                    context.read<AuthBloc>().otpController3.text +
-                    context.read<AuthBloc>().otpController4.text));
+            context.read<AuthBloc>().add(
+                  VerifyOtp(
+                      otp: context.read<AuthBloc>().otpController1.text +
+                          context.read<AuthBloc>().otpController2.text +
+                          context.read<AuthBloc>().otpController3.text +
+                          context.read<AuthBloc>().otpController4.text +
+                          context.read<AuthBloc>().otpController5.text +
+                          context.read<AuthBloc>().otpController6.text),
+                );
+            // Navigator.popAndPushNamed(context, Routes.businessProfileScreen);
+
+            // try {
+            //   PhoneAuthCredential credential = PhoneAuthProvider.credential(
+            //       verificationId: verificationId,
+            //       smsCode: (context.read<AuthBloc>().otpController1.text +
+            //               context.read<AuthBloc>().otpController2.text +
+            //               context.read<AuthBloc>().otpController3.text +
+            //               context.read<AuthBloc>().otpController4.text +
+            //               context.read<AuthBloc>().otpController5.text +
+            //               context.read<AuthBloc>().otpController6.text)
+            //           .trim()
+            //           .toString());
+            //   FirebaseAuth.instance
+            //       .signInWithCredential(credential)
+            //       .then((value) {
+            //     // emit(OtpVerified());
+            //     Navigator.popAndPushNamed(
+            //         context, Routes.businessProfileScreen);
+            //   });
+            // } catch (error) {
+            //   // ignore: avoid_print
+            //   print(error.toString());
+            // }
           },
         ),
       ),

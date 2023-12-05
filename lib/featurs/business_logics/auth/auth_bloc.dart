@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sales_tracker/data/repositories/auth_repository/auth_repositories.dart';
 import 'package:sales_tracker/featurs/utils/constants/constants.dart';
@@ -14,6 +15,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final TextEditingController otpController2 = TextEditingController();
   final TextEditingController otpController3 = TextEditingController();
   final TextEditingController otpController4 = TextEditingController();
+  final TextEditingController otpController5 = TextEditingController();
+  final TextEditingController otpController6 = TextEditingController();
+  String verificationId = '';
   final AuthRepository authRepository;
   AuthBloc(this.authRepository) : super(AuthInitial()) {
     on<GoogleSignUpEvent>(googleSignUpEvent);
@@ -33,11 +37,24 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   Future<void> verifyPhoneEvent(
       VerifyPhone event, Emitter<AuthState> emit) async {
     print('continue pressed => 2');
-
-    emit(OtpSend());
+    print('otp bloc phone -> ${event.phoneNumber}');
+    final result = await authRepository.phoneNumberCodeSend(event.phoneNumber);
+    print('otpphone bloc => $result');
+    if (result != null) {
+      verificationId = result;
+      emit(OtpSend());
+    } else {
+      emit(OtpSendError());
+    }
+    // emit(OtpSend());
   }
 
   Future<void> verifyOtpEvent(VerifyOtp event, Emitter<AuthState> emit) async {
-    emit(OtpVerified());
+    final result = await authRepository.otpRecived(verificationId, event.otp);
+    if (result) {
+      emit(OtpVerified());
+    } else {
+      emit(OtpVerifiedError());
+    }
   }
 }

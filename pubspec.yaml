@@ -43,6 +43,7 @@ dependencies:
   firebase_auth: ^4.14.0
   google_sign_in: ^6.1.5
   firebase_storage: ^11.2.8
+  firebase_database: ^10.3.6
   cloud_firestore: ^4.9.3
   ionicons: 0.2.2
 

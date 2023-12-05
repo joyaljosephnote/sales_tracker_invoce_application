@@ -20,4 +20,8 @@ class EmailVerified extends AuthState {}
 
 class OtpVerified extends AuthState {}
 
+class OtpSendError extends AuthState {}
+
+class OtpVerifiedError extends AuthState {}
+
 class OtpSend extends AuthState {}

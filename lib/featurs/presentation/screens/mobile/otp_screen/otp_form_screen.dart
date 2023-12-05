@@ -7,7 +7,9 @@ import 'package:sales_tracker/featurs/utils/widgets/sized_box_widgets.dart';
 import 'package:sales_tracker/featurs/utils/widgets/text_style.dart';
 
 class OtpFormScreen extends StatelessWidget {
-  const OtpFormScreen({super.key});
+  OtpFormScreen({super.key, required this.verificationId});
+
+  final String verificationId;
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +47,7 @@ class OtpFormScreen extends StatelessWidget {
                   heightSizedBox(heightValue: 23.0),
                   const ResendOTP(),
                   heightSizedBox(heightValue: 25.0),
-                  const VerifyButton(),
+                  VerifyButton(verificationId: verificationId),
                   heightSizedBox(heightValue: 25.0),
                 ],
               ),

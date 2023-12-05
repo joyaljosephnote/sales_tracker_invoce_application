@@ -180,7 +180,9 @@ class CreateMenuNavigations extends StatelessWidget {
         MenuIconsWidget(
           buttonName: "Product",
           iconSymbole: Ionicons.cube_outline,
-          onTap: () {},
+          onTap: () {
+            Navigator.pushNamed(context, Routes.addNewProductScreen);
+          },
         ),
         MenuIconsWidget(
           buttonName: "Expenses",

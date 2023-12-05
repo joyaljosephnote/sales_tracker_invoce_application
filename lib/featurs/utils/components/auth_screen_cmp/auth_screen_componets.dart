@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -57,7 +58,6 @@ class MobileNumberField extends StatelessWidget {
       validator: (value) {
         return null;
       },
-      // initialValue: "+91 ",
       decoration: InputDecoration(
         border: const UnderlineInputBorder(),
         hintText: "+91",
@@ -120,7 +120,13 @@ class ContinueButton extends StatelessWidget {
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state is OtpSend) {
-          Navigator.popAndPushNamed(context, Routes.otpVerificationScreen);
+          print("otp navigated to otp screen");
+          Navigator.popAndPushNamed(context, Routes.otpVerificationScreen,
+              arguments: ' ');
+        } else if (state is OtpSendError) {
+          print('otp error snak show');
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text("error while sending ")));
         }
       },
       child: Container(
@@ -132,11 +138,40 @@ class ContinueButton extends StatelessWidget {
         ),
         child: InkWellButtonWidget(
           data: "CONTINUE",
-          onTap: () {
+          onTap: () async {
             print('continue pressed => 1');
             context.read<AuthBloc>().add(VerifyPhone(
                 phoneNumber:
                     context.read<AuthBloc>().mobileController.text.trim()));
+
+            //firebase fuction for otp send
+
+            // await FirebaseAuth.instance.verifyPhoneNumber(
+            //   phoneNumber: context
+            //       .read<AuthBloc>()
+            //       .mobileController
+            //       .text
+            //       .trim()
+            //       .toString(),
+            //   timeout: const Duration(seconds: 60),
+            //   verificationCompleted: (PhoneAuthCredential credential) {
+            //     print("otp credential");
+            //   },
+            //   verificationFailed: (error) {
+            //     print("otp error");
+            //     // emit(OtpSendError());
+            //     ScaffoldMessenger.of(context).showSnackBar(
+            //         SnackBar(content: Text("error while sending ")));
+            //   },
+            //   codeSent: (String verificationId, int? resendToken) {
+            //     print("otp succeces");
+            //     Navigator.popAndPushNamed(context, Routes.otpVerificationScreen,
+            //         arguments: verificationId);
+            //     // emit(OtpSend());
+            //   },
+            //   codeAutoRetrievalTimeout: (String verificationId) {},
+            // );
+            // Navigator.popAndPushNamed(context, Routes.otpVerificationScreen);
           },
           fontSize: sWidth! / 28,
           borderRadius: 10,
