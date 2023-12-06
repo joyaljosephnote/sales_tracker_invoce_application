@@ -121,7 +121,8 @@ class ContinueButton extends StatelessWidget {
         if (state is OtpSend) {
           // ignore: avoid_print
           print("otp navigated to otp screen");
-          Navigator.popAndPushNamed(context, Routes.otpVerificationScreen);
+          Navigator.popAndPushNamed(context, Routes.otpVerificationScreen,
+              arguments: "");
         } else if (state is OtpSendError) {
           // ignore: avoid_print
           print('otp error snak show');

@@ -46,7 +46,7 @@ class AuthDataSource implements AuthRepository {
     String? verification;
     await FirebaseAuth.instance.verifyPhoneNumber(
       phoneNumber: phoneNumber,
-      timeout: const Duration(seconds: 60),
+      timeout: const Duration(seconds: 30),
       verificationCompleted: (PhoneAuthCredential credential) {},
       verificationFailed: (error) {
         print('error in otp send');

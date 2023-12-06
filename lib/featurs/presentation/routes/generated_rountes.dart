@@ -22,18 +22,18 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (context) => const AuthScreen());
       case Routes.landingScreen:
         return MaterialPageRoute(builder: (context) => const LandingScreen());
-      // case Routes.otpVerificationScreen:
-      //   if (args is String) {
-      //     return MaterialPageRoute(
-      //         builder: (context) => OtpFormScreen(
-      //               verificationId: args,
-      //             ));
-      //   } else {
-      //     return _errorRoute();
-      //   }
-
       case Routes.otpVerificationScreen:
-        return MaterialPageRoute(builder: (context) => const OtpFormScreen());
+        if (args is String) {
+          return MaterialPageRoute(
+              builder: (context) => OtpFormScreen(
+                    verificationId: args,
+                  ));
+        } else {
+          return _errorRoute();
+        }
+
+      // case Routes.otpVerificationScreen:
+      //   return MaterialPageRoute(builder: (context) => const OtpFormScreen());
       case Routes.businessProfileScreen:
         return MaterialPageRoute(
             builder: (context) => const BusinessProfileScreen());
